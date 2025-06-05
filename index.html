@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>💬 دردشة ويب جيمينج شاملة</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Gun.js -->
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <!-- PeerJS -->
+  <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="chat-container">
+      <header>
+        <h1><i class="fa-solid fa-gamepad neon"></i> دردشة ويب جيمينج شاملة</h1>
+      </header>
+      <main id="messages"></main>
+      <footer>
+        <div class="input-group">
+          <button id="fileBtn" class="icon-btn neon-hover" title="أرسل ملف"><i class="fa-solid fa-paperclip"></i></button>
+          <input type="file" id="fileInput" style="display:none;" />
+          <button id="recordBtn" class="icon-btn neon-hover" title="تسجيل صوت"><i class="fa-solid fa-microphone"></i></button>
+          <input type="text" id="messageInput" placeholder="اكتب رسالة..." autocomplete="off" />
+          <button id="sendBtn" class="icon-btn neon-hover"><i class="fa-solid fa-paper-plane"></i></button>
+          <button id="callBtn" class="icon-btn neon-hover call-icon" title="ابدأ مكالمة صوتية"><i class="fa-solid fa-phone"></i></button>
+        </div>
+        <button id="loadHistoryBtn" class="btn-load">تحميل المحادثات القديمة</button>
+      </footer>
+      <audio id="remoteAudio" autoplay></audio>
+    </div>
+
+    <!-- Call Sidebar -->
+    <div class="call-sidebar">
+      <h2>🔊 المكالمة الصوتية</h2>
+      <p>معرفك: <span id="myPeerId">جارٍ الاتصال...</span></p>
+      <input type="text" id="peerIdInput" placeholder="أدخل معرف المكالمة" />
+      <button id="startCallBtn" class="btn">📞 اتصال</button>
+      <p id="status">لا توجد مكالمات</p>
+      <p id="callTimer">مدة المكالمة: 00:00</p>
+      <p id="callQuality">جودة: -</p>
+      <div class="call-buttons">
+        <button id="muteBtn" class="btn hidden" title="كتم المايك"><i class="fa-solid fa-microphone-slash"></i></button>
+        <button id="hangupBtn" class="btn hidden" title="إنهاء المكالمة"><i class="fa-solid fa-phone-slash"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
